@@ -44,10 +44,9 @@ opt.signcolumn = "yes"
 -- Lua
 vim.cmd[[colorscheme tokyonight-moon]]
 
-
-
-
-
+-- 半透明
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 
 
