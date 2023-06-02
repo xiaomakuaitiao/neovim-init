@@ -1,8 +1,14 @@
 require'nvim-treesitter.configs'.setup {
     -- 添加不同的语言
-    ensure_installed = { "lua", "vim", "vimdoc", "javascript", "json", "python", "go", "php", "html", "css" },
+    ensure_installed = { "lua", "vim", "vimdoc", "typescript", "rust" , "javascript", "json", "python", "go", "php", "html", "css" },
 
-    highlight = { enable = true },
+    sync_install = false,
+    auto_install = true,
+
+    highlight = { 
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
     indent = { enable = true},
 
 

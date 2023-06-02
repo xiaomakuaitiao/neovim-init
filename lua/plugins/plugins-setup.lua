@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
     }
     use("christoomey/vim-tmux-navigator")
     use "nvim-treesitter/nvim-treesitter"
+    use("ThePrimeagen/harpoon")
     use "p00f/nvim-ts-rainbow"
     use {
         "williamboman/mason.nvim",
