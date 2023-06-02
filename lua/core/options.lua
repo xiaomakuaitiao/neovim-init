@@ -1,13 +1,27 @@
 local opt = vim.opt
 
+opt.guicursor = ""
+
 -- 行号
 opt.relativenumber = true
 opt.number = true
 
 
+opt.smartindent = true
+
+opt.swapfile = false
+opt.backup = false
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undofile = true
+
+
+opt.hlsearch = false
+opt.incsearch = true
+
 -- 缩进
 
 opt.tabstop = 4
+opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
@@ -41,6 +55,15 @@ opt.smartcase = true
 -- 外观
 opt.termguicolors = true
 opt.signcolumn = "yes"
+
+opt.termguicolors = true
+opt.scrolloff = 8
+opt.isfname:append("@-@")
+
+opt.updatetime = 50
+opt.colorcolumn = "80"
+
+
 -- Lua
 vim.cmd[[colorscheme tokyonight-moon]]
 
