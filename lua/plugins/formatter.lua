@@ -1,38 +1,29 @@
 local nulls = require("null-ls")
-
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 nulls.setup({
-    sources = {
-        --
-        -- FORMATTER
-        --
-        -- nulls.builtins.formatting.stylua, -- lua
-        nulls.builtins.formatting.black, -- python
-        -- nulls.builtins.formatting.shfmt, -- bash,sh,zsh
-        -- nulls.builtins.formatting.sqlfluff.with({
-        --     extra_args = { "--dialect", "postgres" },
-        -- }), -- postgresql
-        -- nulls.builtins.formatting.prettierd.with({
-        --     generator_opts = {
-        --         command = "prettierd",
-        --         args = { "$FILENAME" },
-        --         to_stdin = true,
-        --     },
-        -- }), -- css, html, js, json and other stuff (lol)
-        -- nulls.builtins.formatting.goimports, -- golang
-        -- nulls.builtins.formatting.phpcsfixer, -- php
+	sources = {
 
-        --
-        -- DIAGNOSTICS
-        --
-        -- nulls.builtins.diagnostics.sqlfluff.with({
-        --     extra_args = { "--dialect", "postgres" },
-        -- }), -- postgres
-    },
+		nulls.builtins.formatting.stylua, -- lua
+		nulls.builtins.formatting.black, -- python
+		nulls.builtins.formatting.shfmt, -- bash,sh,zsh
+		nulls.builtins.formatting.prettierd.with({
+			generator_opts = {
+				command = "prettierd",
+				args = { "$FILENAME" },
+				to_stdin = true,
+			},
+		}),
+	},
+	on_attach = function(client, bufnr)
+		if client.supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					vim.lsp.buf.format({ async = false })
+				end,
+			})
+		end
+	end,
 })
-
-local function format()
-    vim.lsp.buf.format({ async = true })
-end
-
--- keymap
-vim.keymap.set("n", "<leader>fm", format, { desc = "LSP: Formats the current buffer" })
