@@ -12,6 +12,12 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"lua_ls",
 		"pyright",
+		-- "black",
+		-- "flake8",
+		-- "intelephense",
+		-- "prettierd",
+		-- "shfmt",
+		-- "stylua",
 	},
 })
 
