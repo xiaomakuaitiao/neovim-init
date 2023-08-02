@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/root/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["namespace.nvim"] = {
+    loaded = true,
+    path = "/root/.local/share/nvim/site/pack/packer/start/namespace.nvim",
+    url = "https://github.com/ccaglak/namespace.nvim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/root/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -194,6 +199,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/root/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["vim-blade"] = {
+    loaded = true,
+    path = "/root/.local/share/nvim/site/pack/packer/start/vim-blade",
+    url = "https://github.com/jwalton512/vim-blade"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,

@@ -26,29 +26,29 @@ vim.cmd([[
 
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
-    use("folke/tokyonight.nvim") -- 主题 
+	use("folke/tokyonight.nvim") -- 主题
 
-    use({
+	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
-    use({
+	use({
 		"nvim-tree/nvim-tree.lua",
 		requires = {
 			"nvim-tree/nvim-web-devicons", -- optional
 		},
 	})
-    use("christoomey/vim-tmux-navigator")
-    use("nvim-treesitter/nvim-treesitter")
-    use("ThePrimeagen/harpoon")
+	use("christoomey/vim-tmux-navigator")
+	use("nvim-treesitter/nvim-treesitter")
+	use("ThePrimeagen/harpoon")
 	use("p00f/nvim-ts-rainbow")
-    use({
+	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 	})
 
-    use("hrsh7th/nvim-cmp")
+	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
@@ -56,21 +56,29 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-path")
 	use("jose-elias-alvarez/null-ls.nvim")
 
-    use("numToStr/Comment.nvim") -- gcc和gc注释
+	use("numToStr/Comment.nvim") -- gcc和gc注释
 	use("windwp/nvim-autopairs") -- 自动补全括号
 
-    use("akinsho/bufferline.nvim") -- buffer分隔
+	use("akinsho/bufferline.nvim") -- buffer分隔
 	use("lewis6991/gitsigns.nvim") -- 左侧git提
 
-    use({
+	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.1",
 		-- or                            , branch = '0.1.x',
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
+	use("jwalton512/vim-blade")
+
+	use({ -- packer
+		"ccaglak/namespace.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
 end)
-
